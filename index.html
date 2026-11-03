@@ -3,89 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나만의 힐링 아카이브</title>
-    <!-- CSS 파일 연결하기 -->
+    <title>나만의 라이프 아카이브</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 상단 타이틀 -->
+    <!-- 상단 헤더 -->
     <header>
-        <h1>나만의 작은 쉼터, Forest & Healing</h1>
-        <p>식물, 건강, 맛집, 여행으로 채워가는 여유로운 일상</p>
+        <h1>My Life Archive</h1>
+        <p>힐링, 여행, 맛집, 취미로 채워가는 나의 일상 기록</p>
+        
+        <!-- 카테고리 탭 버튼 -->
+        <nav class="tab-menu">
+            <button class="tab-btn active" onclick="filterCategory('all')">전체보기</button>
+            <button class="tab-btn" onclick="filterCategory('healing')">🌿 힐링</button>
+            <button class="tab-btn" onclick="filterCategory('travel')">✈️ 여행</button>
+            <button class="tab-btn" onclick="filterCategory('food')">🍽️ 맛집</button>
+            <button class="tab-btn" onclick="filterCategory('hobby')">🎨 취미</button>
+        </nav>
     </header>
 
-    <div class="container">
-        
-        <!-- 식물 섹션 -->
-        <section>
-            <h2>🌿 반려식물</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=500&q=80" alt="초록 식물">
-                    <div class="card-content">
-                        <h3>초록빛 인테리어</h3>
-                        <p>집안 곳곳에 싱그러움을 더해주는 반려식물 이야기</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=500&q=80" alt="물주기">
-                    <div class="card-content">
-                        <h3>정성스런 물주기</h3>
-                        <p>흙의 마름을 느끼며 교감하는 평화로운 시간</p>
-                    </div>
+    <!-- 메인 컨텐츠 그리드 -->
+    <main class="container">
+        <div class="grid">
+
+            <!-- 힐링 아이템 -->
+            <div class="card" data-category="healing">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=500&q=80" alt="힐링">
+                <div class="card-content">
+                    <span class="badge healing">힐링</span>
+                    <h3>조용한 숲속 명상</h3>
+                    <p>복잡한 마음을 비우고 자연의 소리에 집중하는 평화로운 시간</p>
                 </div>
             </div>
-        </section>
 
-        <!-- 건강 & 힐링 섹션 -->
-        <section>
-            <h2>🧘‍♀️ 건강 & 힐링</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=500&q=80" alt="요가와 명상">
-                    <div class="card-content">
-                        <h3>요가와 명상</h3>
-                        <p>지친 몸과 마음을 차분하게 가라앉히는 힐링 루틴</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=500&q=80" alt="건강한 식단">
-                    <div class="card-content">
-                        <h3>클린 식단</h3>
-                        <p>신선한 채소와 과들로 채우는 가벼운 활력</p>
-                    </div>
+            <!-- 여행 아이템 -->
+            <div class="card" data-category="travel">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="여행">
+                <div class="card-content">
+                    <span class="badge travel">여행</span>
+                    <h3>탁 트인 바다 산책</h3>
+                    <p>파도 소리를 들으며 해변을 거닐며 얻는 새로운 에너제틱</p>
                 </div>
             </div>
-        </section>
 
-        <!-- 맛집 & 여행 섹션 -->
-        <section>
-            <h2>✈️ 맛집 & 여행</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80" alt="맛있는 기록">
-                    <div class="card-content">
-                        <h3>행복한 미식 기록</h3>
-                        <p>입안 가득 즐거움을 주는 나만의 숨은 맛집 탐방</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=500&q=80" alt="여행 풍경">
-                    <div class="card-content">
-                        <h3>훌쩍 떠나는 여행</h3>
-                        <p>새로운 풍경 속에서 마주하는 온전한 휴식과 해방감</p>
-                    </div>
+            <!-- 맛집 아이템 -->
+            <div class="card" data-category="food">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80" alt="맛집">
+                <div class="card-content">
+                    <span class="badge food">맛집</span>
+                    <h3>소중한 사람과 미식 탐방</h3>
+                    <p>입안 가득 행복을 채워주는 분위기 좋은 감성 카페와 브런치</p>
                 </div>
             </div>
-        </section>
 
-    </div>
+            <!-- 취미 아이템 -->
+            <div class="card" data-category="hobby">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=500&q=80" alt="취미">
+                <div class="card-content">
+                    <span class="badge hobby">취미</span>
+                    <h3>오일파스텔 드로잉</h3>
+                    <p>손끝으로 색을 칠하며 온전히 몰입하는 즐거운 작업 시간</p>
+                </div>
+            </div>
+
+            <!-- 추가 힐링 아이템 -->
+            <div class="card" data-category="healing">
+                <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=500&q=80" alt="반려식물">
+                <div class="card-content">
+                    <span class="badge healing">힐링</span>
+                    <h3>초록 반려식물 돌보기</h3>
+                    <p>새잎이 돋아나는 모습을 보며 느끼는 소소하고 확실한 행복</p>
+                </div>
+            </div>
+
+            <!-- 추가 여행 아이템 -->
+            <div class="card" data-category="travel">
+                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=500&q=80" alt="국내 여행">
+                <div class="card-content">
+                    <span class="badge travel">여행</span>
+                    <h3>한적한 골목길 탐방</h3>
+                    <p>계획 없이 발길 닿는 대로 걸어보는 여유로운 골목 여행</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
 
     <!-- 푸터 -->
     <footer>
-        <p>&copy; 2026 Healing Archive. All rights reserved.</p>
+        <p>&copy; 2026 Life Archive. All rights reserved.</p>
     </footer>
 
+    <!-- 카테고리 필터링 스크립트 -->
+    <script>
+        function filterCategory(category) {
+            // 버튼 활성화 디자인 변경
+            let buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // 카드 필터링
+            let cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
